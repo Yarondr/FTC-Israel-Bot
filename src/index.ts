@@ -15,9 +15,8 @@ import { IModal } from './utils/interfaces/IModal';
 import { loadModals } from './handlers/modalsHandler';
 dotenv.config();
 
-const myTestServerId = '851789251754328064';
-const FRCIsraelId = '959144521621458974'
-const testServers = [myTestServerId, FRCIsraelId];
+const FTCIsraelId = '738388170370187325'
+const testServers = [FTCIsraelId];
 
 export const owners = ['306449257831989248']
 
@@ -53,6 +52,6 @@ loadSlashCommands(bot, false);
 loadButtons(bot, false);
 loadModals(bot, false);
 
-scheduleChannelLock(bot.client, FRCIsraelId);
+scheduleChannelLock(bot.client, FTCIsraelId);
 
 client.login(process.env.TOKEN);

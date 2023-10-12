@@ -4,21 +4,21 @@ import { ActionRowBuilder, ModalActionRowComponentBuilder, ModalBuilder, TextInp
 import { IButton } from "../../utils/interfaces/IButton";
 
 module.exports = {
-    id: 'configFTCUserButton',
+    id: 'configUserButton',
     catergory: 'Team Manager',
     deferReply: false,
 
     execute: async (bot: IBot, interaction: ButtonInteraction) => {
         const modal = new ModalBuilder()
-            .setCustomId('configFTCUserModal')
-            .setTitle('הגדרות משתמש (FTC)')
+            .setCustomId('configUserModal')
+            .setTitle('הגדרות משתמש')
 
         const nicknameInput = new TextInputBuilder()
             .setCustomId('nicknameInput')
             .setLabel('Nickname')
             .setRequired(true)
             .setStyle(TextInputStyle.Short)
-        
+
         const teamInput = new TextInputBuilder()
             .setCustomId('teamInput')
             .setLabel('Team Number')

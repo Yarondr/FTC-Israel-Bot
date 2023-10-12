@@ -1,12 +1,12 @@
 import { GuildMember, ModalSubmitInteraction, Role } from "discord.js";
 import { IBot } from "../../utils/interfaces/IBot";
-import { frcTeamList } from "../../utils/teamLists";
+import teamsList from "../../utils/teamLists";
 import { getTeamRoles } from "../../utils/rolesJsonHandler";
-import { addNoTeamRole, hasNoTeamRole, renameMember, setFRCRole } from "../../utils/userConfig";
+import { addNoTeamRole, hasNoTeamRole, renameMember, setTeamRole } from "../../utils/userConfig";
 import { IModal } from "../../utils/interfaces/IModal";
 
 module.exports = {
-    id: 'configFRCUserModal',
+    id: 'configUserModal',
     catergory: 'Team Manager',
     deferReply: true,
     ephemeral: true,
@@ -22,7 +22,7 @@ module.exports = {
             return await interaction.followUp({ content: 'You already have a team!' });
         }
 
-        if (frcTeamList.includes(teamNumber)) {
+        if (teamsList.includes(teamNumber)) {
             const teamRoles = getTeamRoles();
             const removedRoles: Role[] = [];
             const memberRoles = member.roles.cache;
@@ -47,7 +47,7 @@ module.exports = {
             }
 
             // Add new team role
-            const roleSuccess = await setFRCRole(guildRoles, member, teamNumber, guild!);
+            const roleSuccess = await setTeamRole(guildRoles, member, teamNumber, guild!);
             if (!roleSuccess) {
                 // If role not found, revert nickname and add back old roles
                 if (renamesuccess) await renameMember(member, guild!, oldNickname!, teamNumber);
@@ -55,7 +55,7 @@ module.exports = {
                     member.roles.add(role);
                 }
                 await addNoTeamRole(member, guild!);
-                
+
                 return await interaction.followUp({ content: 'Team role not found!' });
             }
 

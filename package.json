@@ -1,9 +1,9 @@
 {
-  "name": "frc-israel-bot",
+  "name": "ftc-israel-bot",
   "version": "1.0.0",
-  "description": "A bot for the FRC Israel discord server",
+  "description": "A bot for the FTC Israel discord server",
   "main": "src/index.ts",
-  "repository": "https://github.com/Yarondr/FRC-Israel-Bot.git",
+  "repository": "https://github.com/Yarondr/FTC-Israel-Bot.git",
   "author": "YaronD",
   "license": "MIT",
   "dependencies": {

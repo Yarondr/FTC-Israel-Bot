@@ -12,22 +12,10 @@ export async function renameMember(member: GuildMember, guild: Guild, nickname: 
     }
 }
 
-export async function setFRCRole(guildRoles: Collection<string, Role>, member: GuildMember, teamNumber: string, guild: Guild) {
+export async function setTeamRole(guildRoles: Collection<string, Role>, member: GuildMember, teamNumber: string, guild: Guild) {
     await removeNoTeamRole(member, guild);
 
     const newRole = guildRoles.find(role => role.name.split(" | ")[1] === teamNumber);
-    if (newRole != undefined) {
-        await member.roles.add(newRole);
-        return true;
-    }
-    return false;
-}
-
-export async function setFTCRole(member: GuildMember, guild: Guild) {
-    const ftcRoleId = getFTCTeamRoleId();
-    await removeNoTeamRole(member, guild);
-
-    const newRole = await guild.roles.fetch().then(roles => roles.find(role => role.id.toLowerCase() == ftcRoleId));
     if (newRole != undefined) {
         await member.roles.add(newRole);
         return true;
