@@ -18,16 +18,17 @@ module.exports = {
         const nickname = interaction.fields.getTextInputValue('nicknameInput');
         const teamNumber = interaction.fields.getTextInputValue('teamInput');
 
-        if (!await hasNoTeamRole(member, guild!)) {
-            return await interaction.followUp({ content: 'You already have a team!' });
-        }
-
         if (!nickname.match(/^[a-zA-Z ]+$/)) {
             return await interaction.followUp({ content: 'Nickname can only contain english letters and spaces!' });
         }
         if (!nickname.replace(/\s/g, '').length) {
             return await interaction.followUp({ content: 'Nickname can\'t be only spaces!' });
         }
+
+        if (!await hasNoTeamRole(member, guild!)) {
+            return await interaction.followUp({ content: 'You already have a team!' });
+        }
+
 
         if (teamsList.includes(teamNumber)) {
             const teamRoles = getTeamRoles();
