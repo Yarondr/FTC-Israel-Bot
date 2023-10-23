@@ -33,7 +33,7 @@ module.exports = {
         const channel = guild?.channels.cache.get(options.getString('channel-id')!) as TextChannel;
         if (!channel) return await interaction.editReply({ content: 'Channel not found!' });
 
-        await channel.send({ content: "נא ללחוץ על הכפתור למטה על מנת לקבל את הרול של הקבוצה שלכם ולקבוע את שמכם בשרת 👇", components: [buttons] }).catch(async () => {
+        await channel.send({ content: "נא ללחוץ על הכפתור למטה על מנת לקבל את הרול של הקבוצה והכינוי שלכם בשרת 👇", components: [buttons] }).catch(async () => {
             return await interaction.editReply({ content: 'I don\'t have permissions to send messages in that channel!' });
         });
         return await interaction.editReply({ content: 'Buttons added to the channel!' });
