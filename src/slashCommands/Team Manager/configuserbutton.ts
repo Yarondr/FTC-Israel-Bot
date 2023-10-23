@@ -27,7 +27,7 @@ module.exports = {
         const { options, guild } = interaction;
 
         const buttons = new ActionRowBuilder<ButtonBuilder>().setComponents(
-            new ButtonBuilder().setCustomId('configUserButton').setLabel('Click Here').setStyle(ButtonStyle.Primary),
+            new ButtonBuilder().setCustomId('configUserButton').setLabel('לחצו כאן').setStyle(ButtonStyle.Primary),
         )
 
         const channel = guild?.channels.cache.get(options.getString('channel-id')!) as TextChannel;
