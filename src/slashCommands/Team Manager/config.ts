@@ -1,7 +1,7 @@
 import { ApplicationCommandOptionType, CommandInteraction } from 'discord.js';
 import { IBot } from '../../utils/interfaces/IBot';
 import { ISlashCommand } from '../../utils/interfaces/ISlashCommand';
-import { addTeamRole, isTeamRoleExists, setFTCTeamRoleId, setNoTeamRoleId } from '../../utils/rolesJsonHandler';
+import { addTeamRole, isTeamRoleExists, setNoTeamRoleId } from '../../utils/rolesJsonHandler';
 import teamsList from '../../utils/teamLists';
 
 module.exports = {
