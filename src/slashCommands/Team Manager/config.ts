@@ -31,19 +31,6 @@ module.exports = {
             name: 'teams',
             type: ApplicationCommandOptionType.Subcommand,
             description: 'Update the group teams role ids',
-        },
-        {
-            name: 'ftc',
-            type: ApplicationCommandOptionType.Subcommand,
-            description: 'Update the group ftc role id',
-            options: [
-                {
-                    name: 'role',
-                    type: ApplicationCommandOptionType.Role,
-                    required: true,
-                    description: "The role to set as ftc team role"
-                }
-            ],
         }
 
     ],
@@ -56,10 +43,6 @@ module.exports = {
             const role = options.getRole('role')!;
             setNoTeamRoleId(role.id);
             await interaction.editReply({ content: `No Team role id has been set to ${role.id}` });
-        } else if (subCommand == 'ftc') {
-            const role = options.getRole('role')!;
-            setFTCTeamRoleId(role.id);
-            await interaction.editReply({ content: `FTC role id has been set to ${role.id}` });
         } else if (subCommand == 'teams') {
             const guildRoles = await guild!.roles.fetch();
             let amount = 0;

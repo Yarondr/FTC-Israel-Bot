@@ -15,11 +15,6 @@ export function getNoTeamRoleId(): string {
     return roles['no team'];
 }
 
-export function getFTCTeamRoleId(): string {
-    const roles = getRolesJson();
-    return roles['ftc role'];
-}
-
 export function addTeamRole(roleId: string) {
     const roles = getRolesJson();
     roles['team roles'].push(roleId);
@@ -34,11 +29,5 @@ export function isTeamRoleExists(roleId: string): boolean {
 export function setNoTeamRoleId(roleId: string) {
     const roles = getRolesJson();
     roles['no team'] = roleId;
-    fs.writeFileSync('./roles.json', JSON.stringify(roles, null, 2));
-}
-
-export function setFTCTeamRoleId(roleId: string) {
-    const roles = getRolesJson();
-    roles['ftc role'] = roleId;
     fs.writeFileSync('./roles.json', JSON.stringify(roles, null, 2));
 }
