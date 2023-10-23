@@ -1,7 +1,7 @@
 import { ApplicationCommandOptionType, ButtonStyle, CommandInteraction, GuildMember, TextChannel } from 'discord.js';
 import { IBot } from '../../utils/interfaces/IBot';
 import { ISlashCommand } from '../../utils/interfaces/ISlashCommand';
-import { addTeamRole, getNoTeamRoleId, getTeamRoles, isTeamRoleExists, setFTCTeamRoleId, setNoTeamRoleId } from '../../utils/rolesJsonHandler';
+import { addTeamRole, getNoTeamRoleId, getTeamRoles, isTeamRoleExists, setNoTeamRoleId } from '../../utils/rolesJsonHandler';
 import { ActionRowBuilder, ButtonBuilder } from '@discordjs/builders';
 
 module.exports = {
