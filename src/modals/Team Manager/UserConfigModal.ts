@@ -19,14 +19,14 @@ module.exports = {
         const teamNumber = interaction.fields.getTextInputValue('teamInput');
 
         if (!nickname.match(/^[a-zA-Z ]+$/)) {
-            return await interaction.followUp({ content: 'Nickname can only contain english letters and spaces!' });
+            return await interaction.followUp({ content: 'על הכינוי להכין רק תווים באנגלית ורווחים!' });
         }
         if (!nickname.replace(/\s/g, '').length) {
-            return await interaction.followUp({ content: 'Nickname can\'t be only spaces!' });
+            return await interaction.followUp({ content: 'הכינוי לא יכול להיות רק רווחים!' });
         }
 
         if (!await hasNoTeamRole(member, guild!)) {
-            return await interaction.followUp({ content: 'You already have a team!' });
+            return await interaction.followUp({ content: 'כבר יש לך רול של קבוצה!' });
         }
 
 
@@ -40,7 +40,7 @@ module.exports = {
             const oldNickname = member.nickname;
             const renamesuccess = await renameMember(member, guild!, nickname, teamNumber);
             if (!renamesuccess) {
-                return await interaction.followUp({ content: 'Can\'t set nickname, Please reach out to a staff member!' });
+                return await interaction.followUp({ content: 'לא הצלחנו לקבוע לך את הכינוי, יש לפנות לצוות השרת' });
             }
 
             // Remove old team roles
@@ -64,12 +64,12 @@ module.exports = {
                 }
                 await addNoTeamRole(member, guild!);
 
-                return await interaction.followUp({ content: 'Team role not found!' });
+                return await interaction.followUp({ content: 'מספר קבוצה לא נמצא!' });
             }
 
-            await interaction.followUp({ content: 'Your group and nickname have been set!' });
+            await interaction.followUp({ content: 'הכינוי שלך ורול הקבוצה שלך נקבעו בהצלחה!' });
         } else {
-            await interaction.followUp({ content: 'Team number is invalid!' });
+            await interaction.followUp({ content: 'מספר קבוצה לא תקין!' });
         }
     }
 } as IModal

@@ -15,13 +15,13 @@ module.exports = {
 
         const nicknameInput = new TextInputBuilder()
             .setCustomId('nicknameInput')
-            .setLabel('Nickname')
+            .setLabel('כינוי בשרת')
             .setRequired(true)
             .setStyle(TextInputStyle.Short)
 
         const teamInput = new TextInputBuilder()
             .setCustomId('teamInput')
-            .setLabel('Team Number')
+            .setLabel('מספר קבוצה')
             .setRequired(true)
             .setStyle(TextInputStyle.Short)
 
